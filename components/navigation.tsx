@@ -21,8 +21,6 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
-    if (typeof window === "undefined") return
-
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
 
