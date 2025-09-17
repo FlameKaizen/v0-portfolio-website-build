@@ -3,6 +3,9 @@
 import { motion } from "framer-motion"
 import { Card } from "@/components/ui/card"
 import { Code, Palette, Zap, Users } from "lucide-react"
+import { AnimatedCounter } from "@/components/ui/animated-counter"
+import { StaggerContainer, StaggerItem } from "@/components/animations/stagger-container"
+import { GradientText } from "@/components/ui/gradient-text"
 
 const skills = [
   {
@@ -43,7 +46,7 @@ export function About() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            About <span className="text-gradient">Me</span>
+            About <GradientText animate>Me</GradientText>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Passionate about creating digital experiences that blend functionality with beautiful design
@@ -70,25 +73,23 @@ export function About() {
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-2 gap-4"
-          >
+          <StaggerContainer className="grid grid-cols-2 gap-4">
             {[
-              { label: "Projects Completed", value: "50+" },
-              { label: "Years Experience", value: "5+" },
-              { label: "Technologies", value: "20+" },
-              { label: "Happy Clients", value: "30+" },
+              { label: "Projects Completed", value: 50, suffix: "+" },
+              { label: "Years Experience", value: 5, suffix: "+" },
+              { label: "Technologies", value: 20, suffix: "+" },
+              { label: "Happy Clients", value: 30, suffix: "+" },
             ].map((stat, index) => (
-              <Card key={index} className="p-6 text-center card-hover">
-                <div className="text-2xl font-bold text-accent mb-2">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </Card>
+              <StaggerItem key={index}>
+                <Card className="p-6 text-center card-hover">
+                  <div className="text-2xl font-bold text-accent mb-2">
+                    <AnimatedCounter from={0} to={stat.value} suffix={stat.suffix} />
+                  </div>
+                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                </Card>
+              </StaggerItem>
             ))}
-          </motion.div>
+          </StaggerContainer>
         </div>
 
         <motion.div
@@ -99,18 +100,12 @@ export function About() {
           className="space-y-8"
         >
           <h3 className="text-2xl font-semibold text-center mb-8">
-            Skills & <span className="text-gradient">Expertise</span>
+            Skills & <GradientText>Expertise</GradientText>
           </h3>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <StaggerContainer className="grid md:grid-cols-2 gap-6">
             {skills.map((skill, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
+              <StaggerItem key={index}>
                 <Card className="p-6 card-hover">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="p-3 bg-accent/10 rounded-lg">
@@ -138,9 +133,9 @@ export function About() {
                     </div>
                   </div>
                 </Card>
-              </motion.div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </motion.div>
       </div>
     </section>
