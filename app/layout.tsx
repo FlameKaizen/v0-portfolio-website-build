@@ -5,6 +5,9 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
+import { GalaxyCursor } from "@/components/ui/galaxy-cursor"
+import { ScrollProgress } from "@/components/ui/scroll-progress"
+import { FloatingElements } from "@/components/animations/floating-elements"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -50,10 +53,16 @@ export default function RootLayout({
     <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange={false}>
+          <GalaxyCursor />
+
+          <ScrollProgress />
+
+          <FloatingElements />
+
           <Suspense
             fallback={
               <div className="min-h-screen bg-background flex items-center justify-center">
-                <div className="text-accent">Loading...</div>
+                <div className="text-accent cosmic-glow">Loading cosmic experience...</div>
               </div>
             }
           >

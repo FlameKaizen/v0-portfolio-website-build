@@ -5,7 +5,6 @@ import { Card } from "@/components/ui/card"
 import { Code, Palette, Zap, Users } from "lucide-react"
 import { AnimatedCounter } from "@/components/ui/animated-counter"
 import { StaggerContainer, StaggerItem } from "@/components/animations/stagger-container"
-import { GradientText } from "@/components/ui/gradient-text"
 
 const skills = [
   {
@@ -46,7 +45,18 @@ export function About() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            About <GradientText animate>Me</GradientText>
+            About{" "}
+            <span
+              className="text-white cosmic-text"
+              style={{
+                color: "#ffffff",
+                textShadow:
+                  "0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(59, 130, 246, 0.3), 0 0 60px rgba(6, 182, 212, 0.2)",
+                filter: "drop-shadow(0 0 10px rgba(168, 85, 247, 0.4))",
+              }}
+            >
+              Me
+            </span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Passionate about creating digital experiences that blend functionality with beautiful design
@@ -100,7 +110,18 @@ export function About() {
           className="space-y-8"
         >
           <h3 className="text-2xl font-semibold text-center mb-8">
-            Skills & <GradientText>Expertise</GradientText>
+            Skills &{" "}
+            <span
+              className="text-white cosmic-text"
+              style={{
+                color: "#ffffff",
+                textShadow:
+                  "0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(59, 130, 246, 0.3), 0 0 60px rgba(6, 182, 212, 0.2)",
+                filter: "drop-shadow(0 0 10px rgba(168, 85, 247, 0.4))",
+              }}
+            >
+              Expertise
+            </span>
           </h3>
 
           <StaggerContainer className="grid md:grid-cols-2 gap-6">

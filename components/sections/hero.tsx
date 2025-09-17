@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
+import { ArrowDown, Github, Linkedin, Mail, Sparkles } from "lucide-react"
 import { HeroScene } from "@/components/three/hero-scene"
 
 export function Hero() {
@@ -24,8 +24,14 @@ export function Hero() {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <HeroScene />
 
-      {/* Overlay gradient for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-background/80 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/70 to-background/90 z-0" />
+
+      <div className="absolute inset-0 opacity-30 z-0">
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
+        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-blue-400 rounded-full animate-pulse delay-1000" />
+        <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse delay-2000" />
+        <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-purple-300 rounded-full animate-pulse delay-3000" />
+      </div>
 
       <div className="relative z-10 container mx-auto px-6 text-center">
         <motion.div
@@ -40,8 +46,18 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
           >
-            <span className="block text-foreground">Hello, I'm</span>
-            <span className="block text-gradient">Alex Johnson</span>
+            <span className="block text-foreground cosmic-text">Hello, I'm</span>
+            <span
+              className="block text-6xl md:text-7xl lg:text-8xl font-extrabold text-white cosmic-text"
+              style={{
+                color: "#ffffff",
+                textShadow:
+                  "0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(59, 130, 246, 0.3), 0 0 60px rgba(6, 182, 212, 0.2)",
+                filter: "drop-shadow(0 0 10px rgba(168, 85, 247, 0.4))",
+              }}
+            >
+              Alex Johnson
+            </span>
           </motion.h1>
 
           <motion.p
@@ -50,8 +66,8 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
           >
-            Full-Stack Developer & UI/UX Designer crafting exceptional digital experiences with cutting-edge
-            technologies and innovative design solutions.
+            Full-Stack Developer & UI/UX Designer exploring the infinite possibilities of digital creation, crafting
+            stellar experiences across the cosmic web.
           </motion.p>
 
           <motion.div
@@ -63,17 +79,21 @@ export function Hero() {
             <Button
               onClick={scrollToPortfolio}
               size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground glow-effect px-8 py-3"
+              className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white cosmic-glow px-8 py-3 relative overflow-hidden group"
             >
-              View My Work
+              <span className="relative z-10 flex items-center gap-2">
+                <Sparkles className="w-4 h-4" />
+                Explore My Universe
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </Button>
             <Button
               onClick={scrollToContact}
-              variant="outline"
               size="lg"
-              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-3 bg-transparent"
+              className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white cosmic-glow px-8 py-3 relative overflow-hidden group"
             >
-              Get In Touch
+              <span className="relative z-10">Connect Across Space</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </Button>
           </motion.div>
 
@@ -87,23 +107,32 @@ export function Hero() {
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full border border-border hover:border-accent hover:bg-accent/10 transition-all duration-300"
+              className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white cosmic-glow p-3 rounded-full relative overflow-hidden group transition-all duration-300"
             >
-              <Github className="w-6 h-6 text-muted-foreground hover:text-accent" />
+              <span className="relative z-10">
+                <Github className="w-6 h-6" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
             <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full border border-border hover:border-accent hover:bg-accent/10 transition-all duration-300"
+              className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white cosmic-glow p-3 rounded-full relative overflow-hidden group transition-all duration-300"
             >
-              <Linkedin className="w-6 h-6 text-muted-foreground hover:text-accent" />
+              <span className="relative z-10">
+                <Linkedin className="w-6 h-6" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
             <a
               href="mailto:hello@example.com"
-              className="p-3 rounded-full border border-border hover:border-accent hover:bg-accent/10 transition-all duration-300"
+              className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white cosmic-glow p-3 rounded-full relative overflow-hidden group transition-all duration-300"
             >
-              <Mail className="w-6 h-6 text-muted-foreground hover:text-accent" />
+              <span className="relative z-10">
+                <Mail className="w-6 h-6" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
           </motion.div>
         </motion.div>
@@ -119,8 +148,8 @@ export function Hero() {
             transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
             className="flex flex-col items-center gap-2 text-muted-foreground"
           >
-            <span className="text-sm">Scroll to explore</span>
-            <ArrowDown className="w-5 h-5" />
+            <span className="text-sm cosmic-text">Journey through the cosmos</span>
+            <ArrowDown className="w-5 h-5 text-accent" />
           </motion.div>
         </motion.div>
       </div>
