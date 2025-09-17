@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail, Sparkles } from "lucide-react"
 import { HeroScene } from "@/components/three/hero-scene"
+import { GradientText } from "@/components/ui/gradient-text"
 
 export function Hero() {
   const scrollToPortfolio = () => {
@@ -47,17 +48,7 @@ export function Hero() {
             className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
           >
             <span className="block text-foreground cosmic-text">Hello, I'm</span>
-            <span
-              className="block text-6xl md:text-7xl lg:text-8xl font-extrabold text-white cosmic-text"
-              style={{
-                color: "#ffffff",
-                textShadow:
-                  "0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(59, 130, 246, 0.3), 0 0 60px rgba(6, 182, 212, 0.2)",
-                filter: "drop-shadow(0 0 10px rgba(168, 85, 247, 0.4))",
-              }}
-            >
-              Alex Johnson
-            </span>
+            <GradientText className="block text-6xl md:text-7xl lg:text-8xl font-extrabold">Alex Johnson</GradientText>
           </motion.h1>
 
           <motion.p
@@ -92,7 +83,10 @@ export function Hero() {
               size="lg"
               className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white cosmic-glow px-8 py-3 relative overflow-hidden group"
             >
-              <span className="relative z-10">Connect Across Space</span>
+              <span className="relative z-10 flex items-center gap-2">
+                {/* No icon needed for this button */}
+                Connect Across Space
+              </span>
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </Button>
           </motion.div>
