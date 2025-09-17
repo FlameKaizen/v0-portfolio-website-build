@@ -1,8 +1,28 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
 
 export function FloatingElements() {
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setDimensions({ width: window.innerWidth, height: window.innerHeight })
+
+      const handleResize = () => {
+        setDimensions({ width: window.innerWidth, height: window.innerHeight })
+      }
+
+      window.addEventListener("resize", handleResize)
+      return () => window.removeEventListener("resize", handleResize)
+    }
+  }, [])
+
+  if (dimensions.width === 0 || dimensions.height === 0) {
+    return null
+  }
+
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden">
       {/* Floating geometric shapes */}
@@ -11,12 +31,12 @@ export function FloatingElements() {
           key={i}
           className="absolute w-2 h-2 bg-accent/10 rounded-full"
           initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: Math.random() * dimensions.width,
+            y: Math.random() * dimensions.height,
           }}
           animate={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: Math.random() * dimensions.width,
+            y: Math.random() * dimensions.height,
           }}
           transition={{
             duration: 20 + Math.random() * 20,
